@@ -1,0 +1,121 @@
+/* Temporary brochure-site adjustments for the VentraIP-hosted DRQ copy. */
+#menu-item-149,
+#eda-search,
+.woocommerce-ordering,
+.woocommerce-result-count,
+#nf-form-1-cont,
+.ninja-forms-noscript-message,
+.legacy-agency-credit {
+  display: none !important;
+}
+
+.drq-contact-form {
+  margin-top: 20px;
+}
+
+.drq-contact-form h3 {
+  margin: 0 0 30px;
+}
+
+.drq-required-note {
+  margin-bottom: 10px;
+}
+
+.drq-required {
+  color: #e80000;
+}
+
+.drq-form-field {
+  margin-bottom: 24px;
+}
+
+.drq-form-field label {
+  display: block;
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.drq-form-field input,
+.drq-form-field textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c4c4c4;
+  border-radius: 0;
+  background: #f7f7f7;
+  color: #222;
+  font: inherit;
+}
+
+.drq-form-field input {
+  height: 50px;
+}
+
+.drq-form-field textarea {
+  min-height: 198px;
+  resize: vertical;
+}
+
+.drq-contact-form button {
+  padding: 13px 14px;
+  border: 0;
+  border-radius: 0;
+  background: #333;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.drq-contact-form button:hover,
+.drq-contact-form button:focus {
+  background: #1b9fc6;
+}
+
+.drq-form-status {
+  display: none;
+  margin: 15px 0;
+  padding: 12px 14px;
+}
+
+.drq-form-success {
+  display: block;
+  border-left: 4px solid #2f8b44;
+  background: #eef8f0;
+}
+
+.drq-form-error {
+  display: block;
+  border-left: 4px solid #b42318;
+  background: #fff0ee;
+}
+
+.drq-hp {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+.contact-second-first a[href^="mailto:"],
+.contact-second-first a[href^="tel:"] {
+  color: #f7941d;
+  font-weight: 600;
+}
+
+.drq-map-link {
+  color: #1b9fc6;
+  font-weight: 600;
+}
+
+.products .product a {
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  #primary-menu > li > a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
