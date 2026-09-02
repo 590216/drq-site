@@ -6,7 +6,7 @@ TARGET="/home/aldebara/darwinriverquarries.com.au"
 LOG="/home/aldebara/drq-deploy.log"
 
 exec 9>"/home/aldebara/.drq-deploy.lock"
-/usr/bin/flock -n 9 || exit 0
+/bin/flock -n 9 || exit 0
 
 cd "$REPO"
 /usr/bin/git fetch --quiet origin main
