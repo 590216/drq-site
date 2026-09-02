@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/aldebara/darwinriverquarries.com.au/
+    - /bin/cp -a site/. $DEPLOYPATH
