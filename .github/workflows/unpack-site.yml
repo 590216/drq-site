@@ -1,0 +1,34 @@
+name: Unpack DRQ website
+
+on:
+  push:
+    paths:
+      - "DRQ-final-map.zip"
+
+permissions:
+  contents: write
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Replace site files from package
+        run: |
+          rm -rf site
+          mkdir -p site
+          unzip -q -o DRQ-final-map.zip -d site
+
+      - name: Commit unpacked website
+        run: |
+          git config user.name "DRQ Website Automation"
+          git config user.email "actions@users.noreply.github.com"
+          git add site
+          if git diff --cached --quiet; then
+            echo "No website changes to commit."
+          else
+            git commit -m "Import DRQ website files"
+            git push
+          fi
