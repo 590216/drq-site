@@ -423,21 +423,45 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14
 
 <style>
 #drq-approved-update[hidden]{display:none!important}
-#drq-approved-update{padding:48px 20px;background:#f5f5f5;color:#252525}
-#drq-approved-update .drq-update-inner{max-width:1100px;margin:auto}
-#drq-approved-update article{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:center}
-#drq-approved-update img{display:block;width:100%;height:auto}
-#drq-approved-update [data-caption]{white-space:pre-wrap;overflow-wrap:anywhere;font-size:16px;line-height:1.65}
-#drq-approved-update h2{margin:0 0 24px}
-#drq-approved-update a{color:#174f32;text-decoration:underline;font-size:16px;font-weight:bold}
-@media(max-width:700px){#drq-approved-update article{grid-template-columns:1fr;gap:20px}}
+#drq-approved-update{padding:clamp(40px,6vw,80px) 20px;background:#f2f4f5;color:#231f20}
+#drq-approved-update *{box-sizing:border-box}
+#drq-approved-update .drq-update-inner{max-width:1140px;margin:auto}
+#drq-approved-update .drq-section-heading{display:flex;align-items:center;gap:22px;margin-bottom:28px}
+#drq-approved-update .drq-section-heading:after{content:"";height:1px;background:#ccd3d7;flex:1}
+#drq-approved-update h2{font-family:Rubik,sans-serif;font-size:clamp(28px,3.3vw,42px);font-weight:500;line-height:1.15;letter-spacing:-.035em;margin:0;color:#231f20}
+#drq-approved-update article{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);background:#fff;border-top:4px solid #16b6e6;box-shadow:0 14px 40px rgba(24,38,48,.08)}
+#drq-approved-update .drq-post-photo{display:flex;align-items:center;background:#e8edef;min-width:0}
+#drq-approved-update [data-post-image]{display:block;width:100%;height:auto;max-width:100%}
+#drq-approved-update .drq-post-copy{padding:clamp(24px,3.5vw,44px);min-width:0}
+#drq-approved-update .drq-post-header{display:flex;gap:16px;align-items:center;padding-bottom:24px;margin-bottom:26px;border-bottom:1px solid #e4e8ea}
+#drq-approved-update .drq-post-logo{width:90px;height:auto;flex-shrink:0}
+#drq-approved-update .drq-page-name{display:block;font-family:Rubik,sans-serif;font-size:16px;line-height:1.4;font-weight:500}
+#drq-approved-update .drq-post-meta{font-size:14px;color:#59656c;line-height:1.6;margin-top:5px}
+#drq-approved-update .drq-post-meta i{color:#1877f2;margin-right:5px}
+#drq-approved-update time{display:block}
+#drq-approved-update time[hidden]{display:none}
+#drq-approved-update h3{font-family:Rubik,sans-serif;font-size:clamp(23px,2.3vw,30px);font-weight:500;line-height:1.25;letter-spacing:-.02em;margin:0 0 20px;color:#231f20}
+#drq-approved-update [data-caption]{white-space:pre-wrap;overflow-wrap:anywhere;font-size:16px;line-height:1.75;margin:0 0 28px;color:#414a50}
+#drq-approved-update [data-post-link]{display:inline-flex;align-items:center;gap:10px;padding:13px 0 9px;border-bottom:2px solid #16b6e6;color:#222b31;text-decoration:none;font-size:16px;font-weight:500}
+#drq-approved-update [data-post-link]:hover{color:#006b91;border-color:#006b91}
+#drq-approved-update [data-post-link]:focus-visible{outline:3px solid #006b91;outline-offset:5px}
+@media(max-width:760px){#drq-approved-update article{grid-template-columns:1fr}#drq-approved-update .drq-post-header{gap:12px}#drq-approved-update .drq-post-logo{width:76px}}
 </style>
 <section id="drq-approved-update" hidden aria-labelledby="drq-update-title">
-<div class="drq-update-inner"><h2 id="drq-update-title">Latest from DRQ</h2>
-<article><img alt="Photo accompanying Darwin River Quarries’ sand supply update" width="960" height="720" referrerpolicy="no-referrer">
-<div><p data-caption></p><a data-post-link target="_blank" rel="noopener noreferrer">View post on Facebook</a></div></article></div>
+<div class="drq-update-inner">
+<div class="drq-section-heading"><h2 id="drq-update-title">Latest from DRQ</h2></div>
+<article>
+<div class="drq-post-photo"><img data-post-image alt="Photo accompanying Darwin River Quarries’ sand supply update" width="960" height="720" referrerpolicy="no-referrer"></div>
+<div class="drq-post-copy">
+<header class="drq-post-header">
+<img class="drq-post-logo" src="/wp-content/uploads/2019/08/vector_desktop-logo.svg" alt="" width="245" height="75">
+<div><span class="drq-page-name">Darwin River Quarries</span><div class="drq-post-meta"><i class="fab fa-facebook-square" aria-hidden="true"></i> Posted on Facebook<time data-post-date hidden></time></div></div>
+</header>
+<h3 data-post-title></h3><p data-caption></p>
+<a data-post-link target="_blank" rel="noopener noreferrer">View on Facebook <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+</div></article></div>
 </section>
-<script src="/assets/drq-feed.js" defer></script>
+<script src="/assets/drq-feed.js?v=2" defer></script>
 
 <div id="homepage-bottom-cta-wrapper">
 

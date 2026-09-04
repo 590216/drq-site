@@ -37,7 +37,7 @@ if ($token !== '' && !preg_match('/[\r\n]/', $token)) {
         foreach (($post['attachments']['data'] ?? []) as $attachment) {
             $src = $attachment['media']['image']['src'] ?? null;
             if (($attachment['type'] ?? '') === 'photo' && safeUrl($src, true) && !empty($post['message'])) {
-                $payload['posts'][] = ['id' => $postId, 'message' => $post['message'], 'url' => $post['permalink_url'], 'image' => $src];
+                $payload['posts'][] = ['id' => $postId, 'message' => $post['message'], 'created_time' => $post['created_time'] ?? null, 'url' => $post['permalink_url'], 'image' => $src];
                 break;
             }
         }
