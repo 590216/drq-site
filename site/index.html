@@ -82,6 +82,16 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14
 	<script type="application/ld+json" id="drq-seo-schema">
 {"@context":"https://schema.org","@graph":[{"@type":["LocalBusiness","Organization"],"@id":"https://darwinriverquarries.com.au/#business","name":"Darwin River Quarries Pty Ltd","url":"https://darwinriverquarries.com.au/","telephone":"+61 8 8978 4998","email":"info@drqnt.com.au","image":"https://darwinriverquarries.com.au/wp-content/uploads/2019/08/work-site-high-view.jpg","address":{"@type":"PostalAddress","streetAddress":"145 Byers Road","addressLocality":"Manton","addressRegion":"NT","postalCode":"0837","addressCountry":"AU"},"areaServed":{"@type":"AdministrativeArea","name":"Darwin and the Top End, Northern Territory"},"sameAs":["https://www.facebook.com/DarwinRiverQuarries/"]},{"@type":"WebSite","@id":"https://darwinriverquarries.com.au/#website","url":"https://darwinriverquarries.com.au/","name":"Darwin River Quarries","publisher":{"@id":"https://darwinriverquarries.com.au/#business"},"inLanguage":"en-AU"}]}
 </script>
+
+<style id="drq-facebook-styles">
+#drq-facebook-updates{padding:60px 0;background:#f5f5f5}
+#drq-facebook-updates .drq-facebook-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,500px);gap:40px;align-items:start}
+#drq-facebook-updates .drq-facebook-intro{padding-top:16px}
+#drq-facebook-updates .drq-facebook-note{font-size:14px;line-height:1.6;max-width:420px;color:#555}
+#drq-facebook-updates .drq-facebook-feed{width:100%;max-width:500px;min-width:0;background:#fff}
+@media(max-width:767px){#drq-facebook-updates{padding:36px 0}#drq-facebook-updates .drq-facebook-layout{grid-template-columns:minmax(0,1fr);gap:24px}#drq-facebook-updates .drq-facebook-feed{margin:0 auto}}
+</style>
+
 </head>
 
 <body class="home page-template-default page page-id-38 theme-eda-starter woocommerce-no-js wp-featherlight-captions">
@@ -417,7 +427,34 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14
 
 
 
-	<div id="homepage-bottom-cta-wrapper">
+	
+<section id="drq-facebook-updates" aria-labelledby="drq-facebook-heading">
+  <div class="container">
+    <div class="drq-facebook-layout">
+      <div class="drq-facebook-intro">
+        <h2 id="drq-facebook-heading">Latest from DRQ</h2>
+        <p>Catch up with Darwin River Quarries on Facebook for our latest news, photos and updates.</p>
+        <p><a class="btn" href="https://www.facebook.com/DarwinRiverQuarries/" target="_blank" rel="noopener noreferrer">Follow DRQ on Facebook</a></p>
+        <p class="drq-facebook-note">The feed is provided by Facebook and may be unavailable with some privacy settings. You can always view our updates directly on Facebook.</p>
+      </div>
+      <div class="drq-facebook-feed">
+        <iframe id="drq-facebook-frame" title="Darwin River Quarries Facebook posts" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FDarwinRiverQuarries%2F&amp;tabs=timeline&amp;width=500&amp;height=600&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=false" width="500" height="600" loading="lazy" allow="encrypted-media; picture-in-picture; web-share" style="border:0;display:block;width:100%;height:600px"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+(function () {
+  var frame = document.getElementById('drq-facebook-frame');
+  var width = Math.min(500, Math.floor(frame.parentElement.clientWidth));
+  if (width > 0 && width !== 500) {
+    frame.src = frame.src.replace('width=500', 'width=' + width);
+    frame.width = width;
+  }
+})();
+</script>
+
+<div id="homepage-bottom-cta-wrapper">
 
 		<div id="homepage-bottom-cta-container" class="container">
 
