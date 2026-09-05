@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') { http_response_code(405); exit; }
 $private = '/home/aldebara/drq-private';
 $postId = '109709817601324_1719423730192457';
 $shareUrl = 'https://www.facebook.com/share/p/1N2sEyaGHi/';
-$cacheVersion = 2;
+$cacheVersion = 3;
 function respond($data) { echo json_encode($data, JSON_UNESCAPED_SLASHES | JSON_INVALID_UTF8_SUBSTITUTE); exit; }
 function safeUrl($value, $image = false) {
     if (!is_string($value)) return false;
@@ -38,7 +38,7 @@ if ($token !== '' && !preg_match('/[\r\n]/', $token)) {
     if ($status === 200 && is_array($post) && ($post['id'] ?? '') === $postId && safeUrl($shareUrl)) {
         foreach (($post['attachments']['data'] ?? []) as $attachment) {
             $src = $attachment['media']['image']['src'] ?? null;
-            if (($attachment['type'] ?? '') === 'photo' && safeUrl($src, true) && !empty($post['message'])) {
+            if (in_array(($attachment['type'] ?? ''), ['photo', 'album'], true) && safeUrl($src, true) && !empty($post['message'])) {
                 $payload['posts'][] = ['id' => $postId, 'message' => $post['message'], 'created_time' => $post['created_time'] ?? null, 'url' => $shareUrl, 'image' => $src];
                 break;
             }
