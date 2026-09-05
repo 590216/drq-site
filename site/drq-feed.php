@@ -8,6 +8,8 @@ header('Cache-Control: no-store');
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') { http_response_code(405); exit; }
 $private = '/home/aldebara/drq-private';
 $postId = '109709817601324_1719423730192457';
+$shareUrl = 'https://www.facebook.com/share/p/1N2sEyaGHi/';
+$cacheVersion = 2;
 function respond($data) { echo json_encode($data, JSON_UNESCAPED_SLASHES | JSON_INVALID_UTF8_SUBSTITUTE); exit; }
 function safeUrl($value, $image = false) {
     if (!is_string($value)) return false;
@@ -22,7 +24,7 @@ if (!$lock || !flock($lock, LOCK_EX | LOCK_NB)) respond(['posts' => []]);
 @chmod($private . '/feed.lock', 0600);
 $cacheFile = $private . '/approved-feed-cache.json';
 $cache = json_decode((string)@file_get_contents($cacheFile), true);
-if (is_array($cache) && ($cache['post_id'] ?? '') === $postId && time() - ($cache['at'] ?? 0) < ($cache['ttl'] ?? 0)) respond($cache['payload']);
+if (is_array($cache) && ($cache['version'] ?? 0) === $cacheVersion && ($cache['post_id'] ?? '') === $postId && time() - ($cache['at'] ?? 0) < ($cache['ttl'] ?? 0)) respond($cache['payload']);
 $payload = ['posts' => []];
 $token = trim((string)@file_get_contents($private . '/facebook-page-token.txt'));
 if ($token !== '' && !preg_match('/[\r\n]/', $token)) {
@@ -33,18 +35,18 @@ if ($token !== '' && !preg_match('/[\r\n]/', $token)) {
     $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
     $post = is_string($raw) ? json_decode($raw, true) : null;
-    if ($status === 200 && is_array($post) && ($post['id'] ?? '') === $postId && safeUrl($post['permalink_url'] ?? null)) {
+    if ($status === 200 && is_array($post) && ($post['id'] ?? '') === $postId && safeUrl($shareUrl)) {
         foreach (($post['attachments']['data'] ?? []) as $attachment) {
             $src = $attachment['media']['image']['src'] ?? null;
             if (($attachment['type'] ?? '') === 'photo' && safeUrl($src, true) && !empty($post['message'])) {
-                $payload['posts'][] = ['id' => $postId, 'message' => $post['message'], 'created_time' => $post['created_time'] ?? null, 'url' => $post['permalink_url'], 'image' => $src];
+                $payload['posts'][] = ['id' => $postId, 'message' => $post['message'], 'created_time' => $post['created_time'] ?? null, 'url' => $shareUrl, 'image' => $src];
                 break;
             }
         }
     }
 }
 // Short cache limits API traffic; failed requests never serve stale posts.
-$encoded = json_encode(['post_id' => $postId, 'at' => time(), 'ttl' => empty($payload['posts']) ? 60 : 300, 'payload' => $payload]);
+$encoded = json_encode(['version' => $cacheVersion, 'post_id' => $postId, 'at' => time(), 'ttl' => empty($payload['posts']) ? 60 : 300, 'payload' => $payload]);
 @file_put_contents($cacheFile, $encoded, LOCK_EX);
 @chmod($cacheFile, 0600);
 respond($payload);
